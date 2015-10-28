@@ -94,7 +94,7 @@ $PAGE->set_pagelayout('embedded');
 if ( $theme != 'course_theme') {
     $PAGE->requires->css('/mod/chat/gui_ajax/theme/'.$theme.'/chat.css');
 }
-
+$picto='<input type="image" src="https://angelaco.files.wordpress.com/2013/03/feliz.png" alt="feliz" width="40" height="40" id="picto-send" />';
 echo $OUTPUT->header();
 echo $OUTPUT->box(html_writer::tag('h2',  get_string('participants'), array('class' => 'accesshide')) .
         '<ul id="users-list"></ul>', '', 'chat-userlist');
@@ -102,16 +102,20 @@ echo $OUTPUT->box('', '', 'chat-options');
 echo $OUTPUT->box(html_writer::tag('h2',  get_string('messages', 'chat'), array('class' => 'accesshide')) .
         '<ul id="messages-list"></ul>', '', 'chat-messages');
 		
-$picto='<input type="image" src="https://angelaco.files.wordpress.com/2013/03/feliz.png" alt="feliz" width="25" height="25" id="picto-send" />';
+//echo $OUTPUT->box('', '', 'grid');
+
 $table = new html_table();
 $table->data = array(
-    array('<label class="accesshide" for="input-message">'.get_string('entermessage', 'chat').' </label>'.
+    array($picto),
+		array('<label class="accesshide" for="input-message">'.get_string('entermessage', 'chat').' </label>'.
           '<input type="text" disabled="true" id="input-message" value="Loading..." /> '.
           '<input type="button" id="button-send" value="'.get_string('send', 'chat').'" /> <a id="choosetheme" href="###">'.
           get_string('themes').
-          ' &raquo; </a>'.
-		  $picto)
+          ' &raquo; </a>')
 );
+
+
+
 echo $OUTPUT->box(html_writer::tag('h2',  get_string('composemessage', 'chat'), array('class' => 'accesshide')) .
         html_writer::table($table), '', 'chat-input-area');
 echo $OUTPUT->box('', '', 'chat-notify');

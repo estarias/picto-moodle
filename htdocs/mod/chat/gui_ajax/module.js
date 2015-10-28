@@ -44,7 +44,8 @@ M.mod_chat_ajax.init = function(Y, cfg) {
             this.layout = new Y.YUI2.widget.Layout({
                 units : [
                      {position: 'right', width: participantswidth, resize: true, gutter: '1px', scroll: true, body: 'chat-userlist', animate: false},
-                     {position: 'bottom', height: 42, resize: false, body: 'chat-input-area', gutter: '1px', collapse: false, resize: false},
+                     //{position: 'bottom', height: 42, resize: false, body: 'chat-input-area', gutter: '1px', collapse: false, resize: false},
+                     {position: 'bottom', height: 100, resize: false, body: 'chat-input-area', gutter: '1px', collapse: false, resize: false},
                      {position: 'center', body: 'chat-messages', gutter: '0px', scroll: true}
                 ]
             });
@@ -64,7 +65,9 @@ M.mod_chat_ajax.init = function(Y, cfg) {
             this.sendbutton = Y.one('#button-send');
 			this.pictobutton = Y.one('#picto-send');
             this.messagebox = Y.one('#chat-messages');
-
+            
+            //Y.one('#grid').setContent('<p><span>holaaaaaaaaaaaaaaa<span></p>');
+                        
             // Set aria attributes to messagebox and chat-userlist.
             this.messagebox.set('role', 'log');
             this.messagebox.set('aria-live', 'polite');
